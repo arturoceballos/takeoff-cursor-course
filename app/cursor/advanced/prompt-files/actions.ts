@@ -1,7 +1,7 @@
 "use server";
 
-import { openai } from "@ai-sdk/openai";
 import { streamText } from "ai";
+import { openai } from "@ai-sdk/openai";
 import { createStreamableValue } from "ai/rsc";
 
 export interface Message {
@@ -15,7 +15,7 @@ export async function continueConversation(history: Message[]) {
   (async () => {
     const { textStream } = await streamText({
       model: openai("gpt-3.5-turbo"),
-      system: "You are a helpful assistant.",
+      system: "You are a helpful AI assistant that helps users understand and work with prompt files.",
       messages: history
     });
 
